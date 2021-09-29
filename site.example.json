@@ -7,23 +7,73 @@
     "sites": [
         {
             "no": 0,
-            "name": "Antenna5",
+            "name": "Antenna5 (MK)",
             "url" : "http://antenna5stream.neotel.mk:8000/live128"
         },
         {
             "no": 1,
-            "name": "Heart",
+            "name": "Heart (UK)",
             "url" : "https://media-ssl.musicradio.com/HeartUK"
         },
         {
             "no": 2,
-            "name": "Capital",
+            "name": "Capital (UK)",
             "url" : "https://media-ssl.musicradio.com/CapitalUK"
         },
         {
             "no": 3,
-            "name": "Static",
-            "url" : "https://freesound.org/data/previews/35/35291_60285-lq.mp3"
+            "name": "CVGM (US)",
+            "url" : "http://slacker.cvgm.net/cvgm192"
+        },
+        {
+            "no": 4,
+            "name": "Rock FM (ES)",
+            "url" : "https://flucast-b03-05.flumotion.com/cope/rockfm.mp3"
+        },
+        {
+            "no": 5,
+            "name": "RTVE (ES)",
+            "url" : "https://rtvelivestreamv3.akamaized.net/rne_r1_main.m3u8"
+        },
+        {
+            "no": 6,
+            "name": "SER (ES)",
+            "url" : "https://playerservices.streamtheworld.com/api/livestream-redirect/CADENASER.mp3"
+        },
+        {
+            "no": 7,
+            "name": "Number 8",
+            "url" : "http://"
+        },
+        {
+            "no": 8,
+            "name": "Number 9",
+            "url" : "http://"
+        },
+        {
+            "no": 9,
+            "name": "Number 10",
+            "url" : "http://"
+        },
+        {
+            "no": 10,
+            "name": "Number 11",
+            "url" : "http://"
+        },
+        {
+            "no": 11,
+            "name": "Number 12",
+            "url" : "http://"
+        },
+        {
+            "no": 12,
+            "name": "Number 13",
+            "url" : "http://"
+        },
+        {
+            "no": 13,
+            "name": "Number 14",
+            "url" : "http://"
         }
     ]
 }
