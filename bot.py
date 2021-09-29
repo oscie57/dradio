@@ -104,13 +104,9 @@ async def on_component(ctx: ComponentContext):
     elif ctx.custom_id == "radiojoin":
 
         guild = bot.get_guild(int(data['guildid']))
-        print(guild)
-
         voiceChannel = discord.utils.get(guild.voice_channels, id=int(data['channelid']))
-        print(voiceChannel)
-
         voice = discord.utils.get(bot.voice_clients, guild=guild)
-        print(voice)
+
         if voice == None:
             await voiceChannel.connect()
             embed = discord.Embed(color=discord.Color.purple(), description="Connected to Voice")
