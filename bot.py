@@ -7,9 +7,12 @@ from discord_slash import SlashCommand
 from discord_slash.model import ButtonStyle
 from discord_slash.context import ComponentContext
 
+f = open('site.json',)
+data = json.load(f)
+
 intents = discord.Intents.default()
 description = """DRadio allows you to listen to the Radio"""
-bot = commands.Bot(activity=discord.Activity(type=discord.ActivityType.listening, name="to the Radio | r,help", url="https://twitch.tv/0scie"), command_prefix="r,", status=discord.Status.dnd, description=description, intents=intents)
+bot = commands.Bot(activity=discord.Activity(type=discord.ActivityType.listening, name="to the Radio | r,help", url="https://twitch.tv/0scie"), command_prefix=data['prefix'], status=discord.Status.dnd, description=description, intents=intents)
 
 slash = SlashCommand(bot, sync_commands=True, sync_on_cog_reload = True)
 

@@ -2,6 +2,7 @@
     "token": "your token goes here",
     "channelid": 10000000000000000000,
     "guildid": 10000000000000000000,
+    "prefix": "r,",
 
     "sites": [
         {
