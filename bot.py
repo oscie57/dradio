@@ -66,31 +66,89 @@ async def radio(ctx):
         create_button(
             style=ButtonStyle.grey,
             label=data['sites'][0]['name'],
-            custom_id="radioone",
+            custom_id="radio0",
         ),
         create_button(
             style=ButtonStyle.grey,
             label=data['sites'][1]['name'],
-            custom_id="radiotwo",
+            custom_id="radio1",
         ),
         create_button(
             style=ButtonStyle.grey,
             label=data['sites'][2]['name'],
-            custom_id="radiothree",
+            custom_id="radio2",
         ),
         create_button(
             style=ButtonStyle.grey,
             label=data['sites'][3]['name'],
-            custom_id="radiofour",
+            custom_id="radio3",
+        )
+    ]
+
+    stationbuttons2 = [
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][4]['name'],
+            custom_id="radio4",
         ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][5]['name'],
+            custom_id="radio5",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][6]['name'],
+            custom_id="radio6",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][7]['name'],
+            custom_id="radio7",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][8]['name'],
+            custom_id="radio8",
+        )
+    ]
+
+    stationbuttons3 = [
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][9]['name'],
+            custom_id="radio9",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][10]['name'],
+            custom_id="radio10",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][11]['name'],
+            custom_id="radio11",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][12]['name'],
+            custom_id="radio12",
+        ),
+        create_button(
+            style=ButtonStyle.grey,
+            label=data['sites'][13]['name'],
+            custom_id="radio13",
+        )
     ]
 
     radiorow = create_actionrow(*radiobuttons)
     stationrow1 = create_actionrow(*stationbuttons1)
+    stationrow2 = create_actionrow(*stationbuttons2)
+    stationrow3 = create_actionrow(*stationbuttons3)
 
     radioembed = discord.Embed(color=discord.Color.purple(), name="Radio", description=f"Hey there {ctx.author.name}, welcome to the radio controls. If you havent already, hop into <#{data['channelid']}>. The buttons below will let you control me.\n\nWant to self host with your own stations? [Click here!](https://github.com/scor57/dradio)\nDonate? [Buy me a Cookie](https://buymeacoffee.com/oscie)")
 
-    await ctx.send(embed=radioembed, components=[radiorow, stationrow1])
+    await ctx.send(embed=radioembed, components=[radiorow, stationrow1, stationrow2, stationrow3])
 
 @bot.event
 async def on_component(ctx: ComponentContext):
@@ -139,7 +197,7 @@ async def on_component(ctx: ComponentContext):
 
 
 
-    elif ctx.custom_id == "radioone":
+    elif ctx.custom_id == "radio0":
 
         voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice == None:
@@ -155,7 +213,7 @@ async def on_component(ctx: ComponentContext):
         embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][0]['name']}`")
         await ctx.send(embed=embed3, delete_after=5)
 
-    elif ctx.custom_id == "radiotwo":
+    elif ctx.custom_id == "radio1":
 
         voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice == None:
@@ -171,7 +229,7 @@ async def on_component(ctx: ComponentContext):
         embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][1]['name']}`")
         await ctx.send(embed=embed3, delete_after=5)
 
-    elif ctx.custom_id == "radiothree":
+    elif ctx.custom_id == "radio2":
 
         voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice == None:
@@ -187,7 +245,7 @@ async def on_component(ctx: ComponentContext):
         embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][2]['name']}`")
         await ctx.send(embed=embed3, delete_after=5)
 
-    elif ctx.custom_id == "radiofour":
+    elif ctx.custom_id == "radio3":
 
         voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         if voice == None:
@@ -201,6 +259,166 @@ async def on_component(ctx: ComponentContext):
         voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
 
         embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][3]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio4":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][4]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][4]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+    
+    elif ctx.custom_id == "radio5":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][5]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][5]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio6":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][6]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][6]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio7":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][7]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][7]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio8":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][8]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][8]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio9":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][9]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][3]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio10":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][10]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][10]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio11":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][11]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][11]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio12":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][12]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][12]['name']}`")
+        await ctx.send(embed=embed3, delete_after=5)
+
+    elif ctx.custom_id == "radio13":
+
+        voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
+        if voice == None:
+            embed2 = discord.Embed(color=discord.Color.purple(), description="I'm not in the Voice Chat yet!")
+            await ctx.send(embed=embed2, delete_after=5)
+            return
+        else:
+            voice.stop()
+
+        src = FFmpegOpusAudio(data['sites'][13]['url'])
+        voice.play(src, after=lambda e: print('Player error: %s' % e) if e else None)
+
+        embed3 = discord.Embed(color=discord.Color.purple(), description=f"Now playing: `{data['sites'][13]['name']}`")
         await ctx.send(embed=embed3, delete_after=5)
 
 @bot.event
