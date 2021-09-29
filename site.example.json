@@ -1,0 +1,28 @@
+{
+    "token": "your token goes here",
+    "channelid": 10000000000000000000,
+    "guildid": 10000000000000000000,
+
+    "sites": [
+        {
+            "no": 0,
+            "name": "Antenna5",
+            "url" : "http://antenna5stream.neotel.mk:8000/live128"
+        },
+        {
+            "no": 1,
+            "name": "Heart",
+            "url" : "https://media-ssl.musicradio.com/HeartUK"
+        },
+        {
+            "no": 2,
+            "name": "Capital",
+            "url" : "https://media-ssl.musicradio.com/CapitalUK"
+        },
+        {
+            "no": 3,
+            "name": "Static",
+            "url" : "https://freesound.org/data/previews/35/35291_60285-lq.mp3"
+        }
+    ]
+}
