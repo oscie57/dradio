@@ -88,7 +88,7 @@ async def radio(ctx):
     radiorow = create_actionrow(*radiobuttons)
     stationrow1 = create_actionrow(*stationbuttons1)
 
-    radioembed = discord.Embed(color=discord.Color.purple(), name="Radio", description=f"Hey there {ctx.author.name}, welcome to the radio controls. If you havent already, hop into <#{data['channelid']}>. The buttons below will let you control me.")
+    radioembed = discord.Embed(color=discord.Color.purple(), name="Radio", description=f"Hey there {ctx.author.name}, welcome to the radio controls. If you havent already, hop into <#{data['channelid']}>. The buttons below will let you control me.\n\nWant to self host with your own stations? [Click here!](https://github.com/scor57/dradio)\nDonate? [Buy me a Cookie](https://buymeacoffee.com/oscie)")
 
     await ctx.send(embed=radioembed, components=[radiorow, stationrow1])
 
@@ -99,7 +99,9 @@ async def on_component(ctx: ComponentContext):
 
     if ctx.custom_id == "radiodelete":
         await ctx.origin_message.delete()
-        await ctx.send("I deleted the old message for you.", delete_after=5)
+
+        embed4 = discord.Embed(color=discord.Color.purple(), description="Old message deleted.")
+        await ctx.send(embed=embed4, delete_after=5)
 
     elif ctx.custom_id == "radiojoin":
 
@@ -121,7 +123,8 @@ async def on_component(ctx: ComponentContext):
         voice = discord.utils.get(bot.voice_clients, guild=ctx.guild)
         voice.stop()
 
-        await ctx.send("Stopped playing", delete_after=5)
+        embed4 = discord.Embed(color=discord.Color.purple(), description="Stopped Playing")
+        await ctx.send(embed=embed4, delete_after=5)
 
     elif ctx.custom_id == "radioleave":
 
